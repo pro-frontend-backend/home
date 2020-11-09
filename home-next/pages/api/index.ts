@@ -1,22 +1,22 @@
-import { ApolloClient, InMemoryCache } from "@apollo/client";
+import { ApolloClient, InMemoryCache } from '@apollo/client'
 
-let ssrCache = false;
-let apolloClient: any = null;
+let ssrCache = false
+let apolloClient: any = null
 
 const create = (initialState: any) => {
   return new ApolloClient({
-    uri: "http://localhost:3000",
+    uri: 'http://localhost:4000',
     cache: new InMemoryCache().restore(initialState),
-  });
-};
+  })
+}
 const initApollo = (initialState?: any) => {
   if (!process.browser) {
-    return create(initialState);
+    return create(initialState)
   }
-  if (apolloClient && !ssrCache) apolloClient.cache.restore(initialState);
-  if (!apolloClient) apolloClient = create(initialState);
+  if (apolloClient && !ssrCache) apolloClient.cache.restore(initialState)
+  if (!apolloClient) apolloClient = create(initialState)
 
-  return apolloClient;
-};
+  return apolloClient
+}
 
-export default initApollo;
+export default initApollo

@@ -1,24 +1,14 @@
 import Form from './Form'
 import Header from './Header'
-import styled from 'styled-components'
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 60px auto;
-  width: calc(100% - 30px);
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.6);
-  padding-bottom: 60px;
-`
+import { StartPageContainer } from './styles'
 
 const StartPage = ({}) => {
   return (
-    <Container>
+    <StartPageContainer>
       <Header />
+      <h1>Home Signup</h1>
       <Form />
-    </Container>
+    </StartPageContainer>
   )
 }
 

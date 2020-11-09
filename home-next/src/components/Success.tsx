@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import { SuccessTitle, Label, Container } from './styles'
 
 const Success = ({ values }) => {
@@ -13,6 +14,9 @@ const Success = ({ values }) => {
         <Label>Phone: {values.phone}</Label>
         <Label>Salary: {values.salary}</Label>
       </Container>
+      <Link href="/payments">
+        <a>Payments history</a>
+      </Link>
     </>
   )
 }

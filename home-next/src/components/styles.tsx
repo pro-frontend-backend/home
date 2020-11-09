@@ -25,6 +25,17 @@ export const Container = styled.div`
   flex-direction: column;
 `
 
+export const StartPageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 60px auto;
+  width: calc(100% - 30px);
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.6);
+  padding-bottom: 60px;
+`
+
 export const ProgressIndicator = styled.div`
   text-align: center;
   margin: 10px 0;
