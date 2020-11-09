@@ -5,6 +5,7 @@ import Contact from './Contact'
 import Salary from './Salary'
 import Success from './Success'
 import Button from './Button'
+import { ProgressIndicator } from './styles'
 
 const doFormStep = (step: number, values: any, errors: any, touched: any) => {
   switch (step) {
@@ -38,13 +39,11 @@ const MultistepForm = () => {
   const handleSubmit = () => setStep((step) => step + 1)
   const validate = (values: any) => {
     let errors = {} as any
-    if (!values.firstName) {
-      errors.firstName = 'Required'
-    }
+    if (!values.firstName) errors.firstName = 'Required'
+    if (!values.lastName) errors.lastName = 'Required'
+    // if (!values.email) errors.email = 'Required'
+    // if (!values.phone) errors.phone = 'Required'
 
-    if (!values.lastName) {
-      errors.lastName = 'Required'
-    }
     return errors
   }
 
@@ -59,7 +58,9 @@ const MultistepForm = () => {
         {({ values, errors, touched }) => (
           <Form style={style}>
             {doFormStep(step, values, errors, touched)}
-            {step < 3 ? <label>Step: {step}/3</label> : <></>}
+            {step < 3 ? (
+              <ProgressIndicator>Step: {step}/3</ProgressIndicator>
+            ) : null}
             <Button step={step} />
           </Form>
         )}

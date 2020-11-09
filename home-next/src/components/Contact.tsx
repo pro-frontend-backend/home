@@ -1,20 +1,24 @@
 import React from 'react'
 import { Field } from 'formik'
+import { Title, FormInput, ErrorLabel } from './styles'
 
-//TODO phone validation
 const Contact = ({ errors, touched }) => {
   return (
     <>
-      <h3>What is your contact information?</h3>
+      <Title>What is your contact information?</Title>
       <Field
         type="email"
         name="email"
+        as={FormInput}
         placeholder="Email Address"
         margin="normal"
         error={touched.email && errors.email}
       />
 
-      <Field name="phone" type="tel" placeholder="Phone" />
+      <Field name="phone" as={FormInput} type="tel" placeholder="Phone" />
+      {errors.phone && touched.phone ? (
+        <ErrorLabel>{errors.phone}</ErrorLabel>
+      ) : null}
     </>
   )
 }

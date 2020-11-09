@@ -8,6 +8,11 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     font-family: 'Exo', sans-serif;
+    background-image: url("/stockoffice.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: lightgray;
+    font-weight: 600;
   }
 `
 export default function MyApp({ Component, pageProps }) {

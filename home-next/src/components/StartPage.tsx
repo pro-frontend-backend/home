@@ -6,6 +6,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 60px auto;
+  width: calc(100% - 30px);
+  max-width: 500px;
+  background: rgba(255, 255, 255, 0.6);
+  padding-bottom: 60px;
 `
 
 const StartPage = ({}) => {
