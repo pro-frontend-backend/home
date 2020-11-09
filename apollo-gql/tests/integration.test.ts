@@ -23,7 +23,7 @@ const ADD_PAYMENT = gql`
   }
 `
 
-describe('queries', () => {
+describe('In a suite of tests', () => {
   let query, mutate
   beforeAll(() => {
     const server = new ApolloServer({
@@ -39,7 +39,7 @@ describe('queries', () => {
     mutate = testClient.mutate
   })
 
-  it('runs query', async () => {
+  it('runs query to get history', async () => {
     const res = await query({
       query: GET_HISTORY,
       variables: {
@@ -56,7 +56,7 @@ describe('queries', () => {
     )
   })
 
-  it('runs mutation', async () => {
+  it('runs mutation to add payment', async () => {
     const res = await mutate({
       query: ADD_PAYMENT,
       variables: {

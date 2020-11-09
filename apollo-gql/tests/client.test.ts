@@ -25,21 +25,22 @@ const newPayment = {
 }
 
 describe('Client tests', () => {
-  it('should get', () => {
-    expect(client.getPayments(17689)).not.toBe(undefined)
+  it('should get an existing payment', () => {
+    expect(client.getPayments(17689)).toContainEqual(payment)
   })
-  it('should  not get', () => {
+  it('should return undefined if payment does not exist', () => {
     expect(client.getPayment(-1)).toBe(undefined)
   })
-  it('should add', () => {
+  it('should contain payment added', () => {
     client.addPayment(newPayment)
     expect(client.getPayments(17689)).toContainEqual(newPayment)
   })
-  it('should delete', () => {
+  it('should delete payment', () => {
+    client.addPayment(newPayment)
     client.deletePayment(1370)
     expect(client.getPayments(17689)).not.toContainEqual(newPayment)
   })
-  it('should update', () => {
+  it('should update payment', () => {
     const updatedPayment = { ...payment, value: -450 }
     client.updatePayment(updatedPayment)
     const p = client.getPayment(payment.id)
