@@ -1,5 +1,5 @@
 import { Payment } from '../types/Payment'
-const defaultValues: Payment[] = [
+let defaultValues: Payment[] = [
   {
     id: 1366,
     contractId: 17689,
@@ -27,24 +27,26 @@ const defaultValues: Payment[] = [
 const push = (payment: Payment) => {
   defaultValues.push(payment)
 }
-const slice = (id: Number) =>
-  defaultValues.splice(
-    (defaultValues.findIndex((payment: Payment) => payment.id === id), 1)
-  )
+const remove = (id: number) => {
+  defaultValues = defaultValues.filter((payment: Payment) => payment.id !== id)
+}
 
 const client = {
-  getPayments: (contractId) =>
-    defaultValues.filter(
+  getPayments: (contractId) => {
+    return defaultValues.filter(
       (payment: Payment) => payment.contractId === contractId
-    ),
+    )
+  },
   getPayment: (id) =>
     defaultValues.find((payment: Payment) => payment.id === id),
   addPayment: (payment: Payment) => {
     if (!defaultValues.includes(payment)) push(payment)
   },
-  deletePayment: (id: Number) => slice(id),
+  deletePayment: (id: number) => {
+    remove(id)
+  },
   updatePayment: (payment: Payment) => {
-    slice(payment.id)
+    remove(payment.id)
     push(payment)
   },
 }

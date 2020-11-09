@@ -1,7 +1,7 @@
 import { gql } from 'apollo-server'
 import { Payment } from './Payment'
 export interface History {
-  sum: Number
+  sum: number
   items: Payment[]
 }
 

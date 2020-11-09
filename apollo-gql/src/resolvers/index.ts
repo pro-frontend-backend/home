@@ -24,7 +24,7 @@ const resolvers = {
       client.addPayment(payment)
       return await loaders.payment.load(payment.id)
     },
-    delete: async (_: any, id: number) => {
+    delete: async (_: any, { id }) => {
       client.deletePayment(id)
       return id
     },
