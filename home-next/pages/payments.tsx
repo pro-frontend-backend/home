@@ -16,7 +16,7 @@ const PaymentsPage = ({ contractId, startDate, endDate }) => {
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
-  //Default for testing purposes
+  //Default for presentation purposes
   const {
     contractId = 17689,
     startDate = '2016-12-09T00:00:00.00Z',
