@@ -3,7 +3,7 @@
 I opted to go for extra credits and try to combine the two assignments into one application.
 
 ## BACKEND
-I started by creating the API from the backend assignment, opting for a graphql solution.
+I started by creating the API from the backend assignment, opting for a graphql solution since it was one of the choices, this as I had my eyes on creating a way to get the information available to the client, and as I've understood the choices are similar to the current state of the application.
 
 ## Installation instructions:
 Go to /apollo-gql and run `npm i`
